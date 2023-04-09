@@ -1,6 +1,9 @@
 import React from 'react';
 
-const UserCard = ({ user }) => {
+const UserCard = ({ user, handleDelete }) => {
+  const clickDelete = () => {
+    handleDelete(user.id);
+  };
   return (
     <article>
       <h2>
@@ -16,10 +19,10 @@ const UserCard = ({ user }) => {
       </li>
       <div className="flex justify-end w-80">
         <button>
-          <i class="bx bxs-trash"></i>
+          <i className="bx bxs-trash" onClick={clickDelete}></i>
         </button>
         <button>
-          <i class="bx bxs-edit-alt"></i>
+          <i className="bx bxs-edit-alt"></i>
         </button>
       </div>
     </article>

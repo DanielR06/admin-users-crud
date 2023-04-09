@@ -5,7 +5,7 @@ const Navbar = ({ addUserAction }) => {
     <nav className="w-full flex flex-row justify-around items-center p-10">
       <h1>Users Admin</h1>
       <button onClick={addUserAction}>
-        <i class="bx bxs-message-square-add"></i>
+        <i className="bx bxs-message-square-add"></i>
         <span>Add new User</span>
       </button>
     </nav>
