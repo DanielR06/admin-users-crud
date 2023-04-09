@@ -32,12 +32,8 @@ const App = () => {
     setUsers((prevUsers) => [...prevUsers, data]);
   };
   const handleDelete = async (userId) => {
-    try {
-      await deleteUser(userId);
-      setUsers((prevUsers) => prevUsers.filter((user) => user.id !== userId));
-    } catch (error) {
-      console.log(error);
-    }
+    await deleteUser(userId);
+    await loadUsers();
   };
   useEffect(() => {
     loadUsers();
