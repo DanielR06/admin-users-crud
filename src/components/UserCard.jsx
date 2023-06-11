@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UserCard = ({ user, handleDelete }) => {
+const UserCard = ({ user, handleDelete, handleUpdate }) => {
   return (
     <article>
       <h2>
