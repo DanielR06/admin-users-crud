@@ -1,6 +1,10 @@
 import React from 'react';
 
-const UserCard = ({ user, handleDelete, handleUpdate }) => {
+const UserCard = ({ user, handleDelete, activateForm, setUserId }) => {
+  const formUpdate = () => {
+    activateForm();
+    setUserId(user.id);
+  };
   return (
     <article>
       <h2>
@@ -19,7 +23,7 @@ const UserCard = ({ user, handleDelete, handleUpdate }) => {
           <i className="bx bxs-trash" onClick={() => handleDelete(user.id)}></i>
         </button>
         <button>
-          <i className="bx bxs-edit-alt"></i>
+          <i className="bx bxs-edit-alt" onClick={() => formUpdate()}></i>
         </button>
       </div>
     </article>

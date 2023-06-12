@@ -10,9 +10,22 @@ const App = () => {
   //useState de Usuarios
   const [users, setUsers] = useState([]);
   //Form visible
-  const [isFormVisible, setisFormVisible] = useState(false);
-  //UseForm Hook
-  //Cargar los usuarios
+  const [formCreate, setFormCreate] = useState(false);
+  const [formUpdate, setFormUpdate] = useState(false);
+  //SetUSerId
+  const [userId, setuserId] = useState(null);
+  const formAddUser = () => {
+    setFormCreate(true);
+  };
+  const formUpdateUser = () => {
+    setFormUpdate(true);
+  };
+  const createUserSubmit = async (data) => {
+    await createUser(data);
+    setFormCreate(false);
+    setUsers((prevUsers) => [...prevUsers, data]);
+  };
+
   const loadUsers = async () => {
     try {
       const users = await getUser();
@@ -21,33 +34,34 @@ const App = () => {
       console.log(error);
     }
   };
-  const handleClick = () => {
-    setisFormVisible(true);
-  };
-  const onSubmit = async (data) => {
-    await createUser(data);
-    setisFormVisible(false);
-    setUsers((prevUsers) => [...prevUsers, data]);
-  };
-
   const handleDelete = async (userId) => {
     await deleteUser(userId);
     await loadUsers();
   };
-  const handleUpdate = async (userId, userUpdated) => {
-    await updateUser(userId, userUpdated);
+  const updateUserSubmit = async (data) => {
+    await updateUser(userId, data);
+    setFormUpdate(false);
     await loadUsers();
   };
+
   useEffect(() => {
     loadUsers();
   }, []);
   //
   return (
     <div className="flex flex-col justify-center items-center h-screen ">
-      <Navbar addUserAction={handleClick} />
-      <UserList users={users} handleDelete={handleDelete} handleUpdate={handleUpdate} />
-      <Modal isVisible={isFormVisible}>
-        <Form submit={onSubmit} typeForm="Agregar nuevo usuario" />
+      <Navbar activateForm={formAddUser} />
+      <UserList
+        users={users}
+        handleDelete={handleDelete}
+        activateForm={formUpdateUser}
+        setUserId={setuserId}
+      />
+      <Modal isVisible={formCreate}>
+        <Form submit={createUserSubmit} typeForm="Agregar nuevo usuario" />
+      </Modal>
+      <Modal isVisible={formUpdate}>
+        <Form submit={updateUserSubmit} typeForm="Actualizar usuario" />
       </Modal>
       <Footer />
     </div>

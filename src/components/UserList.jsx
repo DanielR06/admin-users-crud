@@ -1,6 +1,6 @@
 import React from 'react';
 import UserCard from './UserCard';
-const UserList = ({ users, handleDelete, handleUpdate }) => {
+const UserList = ({ users, handleDelete, activateForm, setUserId }) => {
   return (
     <section>
       {users.map((user) => (
@@ -8,7 +8,8 @@ const UserList = ({ users, handleDelete, handleUpdate }) => {
           key={user.id}
           user={user}
           handleDelete={handleDelete}
-          handleUpdate={handleUpdate}
+          activateForm={activateForm}
+          setUserId={setUserId}
         />
       ))}
     </section>
