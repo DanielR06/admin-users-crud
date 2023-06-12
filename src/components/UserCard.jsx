@@ -1,28 +1,32 @@
 import React from 'react';
-
+import '../styles/UserCard.css';
 const UserCard = ({ user, handleDelete, activateForm, setUserId }) => {
-  const formUpdate = () => {
-    activateForm();
-    setUserId(user.id);
+  const formUpdate = async () => {
+    await setUserId(user.id);
+    await activateForm();
   };
   return (
-    <article>
-      <h2>
+    <article id="user_card" className="padding">
+      <h3 className="text-center">
         {user.first_name} {user.last_name}
-      </h2>
+      </h3>
+      <hr />
       <li>
-        <span>Mail: </span>
+        <span className="subtitle">Correo: </span>
+        <br />
         {user.email}
       </li>
       <li>
-        <span>Birthday: </span>
-        {user.birthday}
+        <span className="subtitle">Cumpleaños: </span>
+        <br />
+        <i className="bx bx-gift"></i> {user.birthday}
       </li>
-      <div className="flex justify-end w-80">
-        <button>
+      <hr />
+      <div className="container_buttons">
+        <button className="button delete">
           <i className="bx bxs-trash" onClick={() => handleDelete(user.id)}></i>
         </button>
-        <button>
+        <button className="button update">
           <i className="bx bxs-edit-alt" onClick={() => formUpdate()}></i>
         </button>
       </div>

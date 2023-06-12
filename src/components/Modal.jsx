@@ -1,11 +1,22 @@
 import React from 'react';
-
-const Modal = ({ isVisible, children }) => {
+import '../styles/Modal.css';
+const Modal = ({ isVisible, setIsVisible, children }) => {
+  const handlerClick = () => {
+    setIsVisible(false);
+  };
   return (
     <>
       {isVisible && (
-        <div className="absolute border border-red-600 inset-0 bg-[rgba(0,0,0,0.7)]">
+        <div id="modal" className="">
           {children}
+          <button
+            onClick={() => {
+              handlerClick();
+            }}
+            className="button_exit"
+          >
+            <i className="bx bx-x"></i>
+          </button>
         </div>
       )}
     </>

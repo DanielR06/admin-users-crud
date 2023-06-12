@@ -20,9 +20,6 @@ const Contact = () => {
         >
           <i className="bx bxl-linkedin-square"></i> LinkedIn
         </a>
-        <a href="/Curriculum.pdf" download="CV-Daniel-Rodriguez">
-          <i className="bx bxs-spreadsheet"></i> Descargar CV
-        </a>
       </div>
     </footer>
   );

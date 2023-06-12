@@ -57,10 +57,10 @@ const App = () => {
         activateForm={formUpdateUser}
         setUserId={setuserId}
       />
-      <Modal isVisible={formCreate}>
+      <Modal isVisible={formCreate} setIsVisible={setFormCreate}>
         <Form submit={createUserSubmit} typeForm="Agregar nuevo usuario" />
       </Modal>
-      <Modal isVisible={formUpdate}>
+      <Modal isVisible={formUpdate}  setIsVisible={setFormUpdate}>
         <Form submit={updateUserSubmit} typeForm="Actualizar usuario" />
       </Modal>
       <Contact />

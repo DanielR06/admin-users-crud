@@ -6,7 +6,6 @@ const BASE_URL = 'https://users-crud.academlo.tech/';
 export const getUser = async () => {
   try {
     const res = await axios.get(BASE_URL + 'users/');
-    console.log(res.data);
     return res.data;
   } catch (error) {
     console.error(error);
