@@ -2,4 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --theme-ligth-bg:#303030;
+    --theme-ligth-dt:#fff;
+  }
+body {
+    background: var(--theme-ligth-bg);
+    color:var(--theme-ligth-dt);
+    background-color: var(--theme-ligth-bg);
+}
+h1{
+    font-size: 2.5em;
+    text-decoration: underline;
+}
+h2{
+    font-size: 2em;
+}
+h3{
+    font-size: 1.5em;
+}
+.padding{
+    padding: 1em;
+}
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 12px;
 
+    }
+
+}
+@media screen and (min-width:768px){
+    body {
+        font-size: 16px;
+    }
+}
+@media screen and (min-width:992px){
+    body {
+        font-size: 20px;
+    }
+}

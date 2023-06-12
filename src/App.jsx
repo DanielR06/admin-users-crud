@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import Modal from './components/Modal';
 import UserList from './components/UserList';
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
 import { getUser, createUser, deleteUser, updateUser } from './services';
 import Form from './components/Form';
+import Contact from './components/Contact';
 
 const App = () => {
   //useState de Usuarios
@@ -49,7 +49,7 @@ const App = () => {
   }, []);
   //
   return (
-    <div className="flex flex-col justify-center items-center h-screen ">
+    <div className="">
       <Navbar activateForm={formAddUser} />
       <UserList
         users={users}
@@ -63,7 +63,7 @@ const App = () => {
       <Modal isVisible={formUpdate}>
         <Form submit={updateUserSubmit} typeForm="Actualizar usuario" />
       </Modal>
-      <Footer />
+      <Contact />
     </div>
   );
 };
