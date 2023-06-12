@@ -42,3 +42,8 @@
     color: #adadad;
     border: 1px solid #adadad;
 }
+@media screen and (max-width: 600px) {
+    #user_card{
+        font-size: 18px;
+    }
+}

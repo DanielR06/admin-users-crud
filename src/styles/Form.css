@@ -12,3 +12,18 @@
     padding: 0.5em;
     background-color: #444444;
 }
+@media screen and (max-width: 600px) {
+    #form{
+        width: 90%;
+    }
+    #form > h3{
+        font-size: 2.5em;
+    }
+    .inputs{
+        margin-top:1em;
+        font-size: 1.7em;
+    }
+    .button_submit{
+        font-size: 1.5em;
+    }
+}
